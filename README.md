@@ -7,9 +7,9 @@
 
 Materialien für das FPV-Tutorium im Sommersemester 2023.
 
-You can download the merged sumaries at [summary.pdf](https://manuellerchner.github.io/fpv-tutorial-ss23/summary.pdf)
+You can download the merged sumaries at [summary.pdf](https://manuellerchner.github.io/fpv-tutorial-SS23/summary.pdf)
 
-The merged slides are available at [slides.pdf](https://manuellerchner.github.io/fpv-tutorial-ss23/slides.pdf)
+The merged slides are available at [slides.pdf](https://manuellerchner.github.io/fpv-tutorial-SS23/slides.pdf)
 
 ## Found an Error?
 
