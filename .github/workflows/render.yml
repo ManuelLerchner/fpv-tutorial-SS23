@@ -89,3 +89,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Rerendered PDFs
+          token: ${{ secrets.FPV_AUTOCOMIT_TOKEN }}
