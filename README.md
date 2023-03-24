@@ -1,7 +1,7 @@
+# FPV Tutorial - SS23
+
 [![Rerender PDFs](https://github.com/ManuelLerchner/fpv-tutorial-ss23/actions/workflows/render.yml/badge.svg)](https://github.com/ManuelLerchner/subject/actions/workflows/render.yml)
 [![Deploy static content to Pages](https://github.com/ManuelLerchner/fpv-tutorial-ss23/actions/workflows/static.yml/badge.svg)](https://github.com/ManuelLerchner/subject/actions/workflows/static.yml)
-
-# FPV Tutorial - SS23
 
 ## About
 

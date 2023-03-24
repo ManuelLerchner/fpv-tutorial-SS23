@@ -64,10 +64,13 @@ jobs:
           name: slides.pdf
           path: docs/slides.pdf
 
-  push_merged_pdf:
+  push_merged_pdfs:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     needs: [render_summary, render_slides]
+
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@master
@@ -89,4 +92,3 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Rerendered PDFs
-          token: ${{ secrets.FPV_AUTOCOMIT_TOKEN }}
