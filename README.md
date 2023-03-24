@@ -23,6 +23,6 @@ The merged slides are available at [slides.pdf](https://manuellerchner.github.io
 
 ## Contributors
 
-<a href="https://github.com/ManuelLerchner/markdown-script/graphs/contributors">
+<a href="https://github.com/ManuelLerchner/fpv-tutorial-ss23/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=ManuelLerchner/fpv-tutorial-ss23" />
 </a>
