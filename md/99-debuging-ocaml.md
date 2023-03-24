@@ -6,21 +6,21 @@
 
 1. Enter into the `root`-directory of the project and run `dune build` to initially build the project.
 
-    + ```ocaml
-        dune build
-        ```
+    ```ocaml
+    dune build
+    ```
 
 2. Open `utop` via `dune utop`
 
-   + ```ocaml
-      dune utop
-      ```
+    ```ocaml
+    dune utop
+    ```
 
 3. Load the file you want to debug via the `#use` command, e.g.
 
-    + ```ocaml
-      #use "src/main.ml";;
-      ```
+    ```ocaml
+    #use "src/main.ml";;
+    ```
 
     + All the content of the file will be loaded into the `utop`-environment
     + Variables and functions are now available in the `utop`-environment
