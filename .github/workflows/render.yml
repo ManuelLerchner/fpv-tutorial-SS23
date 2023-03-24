@@ -1,4 +1,4 @@
-name: Merge & Render PDF
+name: Rerender PDFs
 
 on:
   push:
@@ -9,12 +9,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  render_pdf:
+  render_summary:
     runs-on: ubuntu-latest
 
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
+
+      - run: sudo apt-get update
 
       - name: install svg to png
         run: sudo apt-get install librsvg2-bin
@@ -31,33 +33,59 @@ jobs:
       - name: create docs folder if not exists
         run: mkdir -p docs
 
-      - name: compile and merge pdfs
+      - name: compile and merge summary
         uses: docker://pandoc/latex:2.9
         with:
-          args: -V documentclass=report -V classoption=oneside -V geometry:vmargin=14.5mm -V lang:de --fail-if-warnings --output=docs/merge.pdf ${{ env.files }}
+          args: -V documentclass=report -V classoption=oneside -V geometry:vmargin=14.5mm -V lang:de --fail-if-warnings --output=docs/summary.pdf ${{ env.files }}
 
       - uses: actions/upload-artifact@master
         with:
-          name: merge.pdf
-          path: docs/merge.pdf
+          name: summary.pdf
+          path: docs/summary.pdf
+
+  render_slides:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: install pdftk
+        run: sudo apt-get install pdftk
+
+      - name: create docs folder if not exists
+        run: mkdir -p docs
+
+      - name: merge
+        run: pdftk slides/*.pdf cat output docs/slides.pdf
+
+      - uses: actions/upload-artifact@master
+        with:
+          name: slides.pdf
+          path: docs/slides.pdf
 
   push_merged_pdf:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
-    needs: render_pdf
+    needs: [render_summary, render_slides]
 
     steps:
       - uses: actions/checkout@master
 
-      - name: delete old merge.pdf if exists
-        run: rm -f docs/merge.pdf
+      - name: delete old pdfs if exists
+        run: rm -f docs/*.pdf
 
       - uses: actions/download-artifact@master
         with:
-          name: merge.pdf
+          name: slides.pdf
           path: docs
 
-      - name: Push pdf to repo
+      - uses: actions/download-artifact@master
+        with:
+          name: summary.pdf
+          path: docs
+
+      - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Rerendered PDF
+          commit_message: Rerendered PDFs

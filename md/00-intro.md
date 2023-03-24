@@ -1,24 +1,24 @@
 ---
-title: Subject
-subtitle: "Subtitle"
+title: FPV-Tutorial - SS23
+subtitle: "Materialien für das FPV-Tutorium im Sommersemester 2023"
 toc: true
 date: >-
   Zuletzt aktualisiert: \today
 keywords:
-  [keyword1, keyword2, keyword3]
+  ["FPV", "Tutorium", "Sommersemester", "2023", "TUM"]
 urlcolor: blue
 include-before: |
-  # Markdown-Script
+  # FPV Tutorial - SS23
 
   ## About
 
-  This is a template repository for creating a PDF document from markdown files. It uses [Pandoc](https://pandoc.org/) to convert the markdown files to a PDF document.
+  Materialien für das FPV-Tutorium im Sommersemester 2023.
 
-  You can download the merged file at [merge.pdf](https://manuellerchner.github.io/markdown-script/merge.pdf)
+  You can download the merged file at [merge.pdf](https://manuellerchner.github.io/fpv-tutorial-ss23/merge.pdf)
 
-  ## How to Contribute
+  ## Found an Error?
 
-  1. Fork [this](https://github.com/ManuelLerchner/markdown-skript) Repository
+  1. Fork this Repository
 
   2. Commit and push your changes to **your** forked repository
 
@@ -29,6 +29,6 @@ include-before: |
   ## Contributors
 
   <a href="https://github.com/ManuelLerchner/markdown-script/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=ManuelLerchner/markdown-script" />
+    <img src="https://contrib.rocks/image?repo=ManuelLerchner/fpv-tutorial-ss23" />
   </a>
 ---

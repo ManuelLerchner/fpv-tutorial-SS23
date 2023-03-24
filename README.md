@@ -1,15 +1,17 @@
-[![Merge & Render PDF](https://github.com/ManuelLerchner/markdown-script/actions/workflows/render.yml/badge.svg)](https://github.com/ManuelLerchner/subject/actions/workflows/render.yml)
-[![Deploy static content to Pages](https://github.com/ManuelLerchner/markdown-script/actions/workflows/static.yml/badge.svg)](https://github.com/ManuelLerchner/subject/actions/workflows/static.yml)
+[![Rerender PDFs](https://github.com/ManuelLerchner/fpv-tutorial-ss23/actions/workflows/render.yml/badge.svg)](https://github.com/ManuelLerchner/subject/actions/workflows/render.yml)
+[![Deploy static content to Pages](https://github.com/ManuelLerchner/fpv-tutorial-ss23/actions/workflows/static.yml/badge.svg)](https://github.com/ManuelLerchner/subject/actions/workflows/static.yml)
 
-# Markdown-Script
+# FPV Tutorial - SS23
 
 ## About
 
-This is a template repository for creating a PDF document from markdown files. It uses [Pandoc](https://pandoc.org/) to convert the markdown files to a PDF document.
+Materialien für das FPV-Tutorium im Sommersemester 2023.
 
-You can download the merged file at [merge.pdf](https://manuellerchner.github.io/markdown-script/merge.pdf)
+You can download the merged sumaries at [summary.pdf](https://manuellerchner.github.io/fpv-tutorial-ss23/summary.pdf)
 
-## How to Contribute
+The merged slides are available at [slides.pdf](https://manuellerchner.github.io/fpv-tutorial-ss23/slides.pdf)
+
+## Found an Error?
 
 1. Fork this Repository
 
@@ -22,5 +24,5 @@ You can download the merged file at [merge.pdf](https://manuellerchner.github.io
 ## Contributors
 
 <a href="https://github.com/ManuelLerchner/markdown-script/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ManuelLerchner/markdown-script" />
+  <img src="https://contrib.rocks/image?repo=ManuelLerchner/fpv-tutorial-ss23" />
 </a>
