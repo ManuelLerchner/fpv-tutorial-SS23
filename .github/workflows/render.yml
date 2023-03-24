@@ -1,0 +1,63 @@
+name: Merge & Render PDF
+
+on:
+  push:
+    branches: master
+  pull_request:
+    branches: master
+
+  workflow_dispatch:
+
+jobs:
+  render_pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: install svg to png
+        run: sudo apt-get install librsvg2-bin
+
+      - name: create list of all files
+        id: files_list
+        run: |
+          cd md
+          echo "files=$(printf '"md/%s" ' *.md)" >> $GITHUB_ENV
+
+      - name: print all files
+        run: echo compiling ${{ env.files }}
+
+      - name: create docs folder if not exists
+        run: mkdir -p docs
+
+      - name: compile and merge pdfs
+        uses: docker://pandoc/latex:2.9
+        with:
+          args: -V documentclass=report -V classoption=oneside -V geometry:vmargin=14.5mm -V lang:de --fail-if-warnings --output=docs/merge.pdf ${{ env.files }}
+
+      - uses: actions/upload-artifact@master
+        with:
+          name: merge.pdf
+          path: docs/merge.pdf
+
+  push_merged_pdf:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    needs: render_pdf
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: delete old merge.pdf if exists
+        run: rm -f docs/merge.pdf
+
+      - uses: actions/download-artifact@master
+        with:
+          name: merge.pdf
+          path: docs
+
+      - name: Push pdf to repo
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Rerendered PDF
