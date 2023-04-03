@@ -88,9 +88,12 @@ jobs:
           name: summary.pdf
           path: docs
 
+      - name: log files
+        run: ls -la docs
+
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Rerendered PDFs
-          add_options: '--force'
+          add_options: "-f"
           file_pattern: docs/*.pdf
