@@ -88,12 +88,15 @@ jobs:
           name: summary.pdf
           path: docs
 
-      - name: log files
-        run: ls -la docs
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs/*.pdf -f
+          git commit -m "Update PDFs"
 
       - name: Push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: ad-m/github-push-action@master
         with:
-          commit_message: Rerendered PDFs
-          add_options: "-f"
-          file_pattern: docs/*.pdf
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
