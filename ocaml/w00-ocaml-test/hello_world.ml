@@ -8,4 +8,5 @@ let rec char_iterator sentence =
     char_iterator tail;
     print_char head
 
+(* Call Function: Result will be visible in the console when loaded via utop *)
 let _ = char_iterator welcome_string
