@@ -24,4 +24,4 @@
 
     + All the content of the file will be loaded into the `utop`-environment
     + Variables and functions are now available in the `utop`-environment
-    + To reload the file, use the prevoius command again. This will shadow the previous definitions of the variables and functions
+    + To reload the file, use the previous command again. This will shadow the previous definitions of the variables and functions
