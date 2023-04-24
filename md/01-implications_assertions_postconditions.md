@@ -62,7 +62,7 @@ This is usefull if you only want to allow certain values for a variable, because
 
 ### Example for MiniJava
 
-![CFG](md/images/CFG.png)
+![Flow Diagram](md/images/cfg.png)
 
 This corresponds to the following program:
 
