@@ -122,7 +122,7 @@ How do they fit into the strength definition?
 In practice those assertions show up in the following cases:
 
 + **Tautologies**: If you have no information about the variables at a specific time in the program, you can use $true$ as an assertion to express this.
-+ **Contradictions**: If you have a point that is **never** reached in the program, you can use $false$ as an assertion to express this. This means that if the programm somehow would reaches this point (which it won't), the program would terminate.
++ **Contradictions**: If you have a point that is **never** reached in the program, you can use $false$ as an assertion to express this. The only way for the program to meet all assertions is to never reach such a point.
 
 ## Strongest Postconditions
 
