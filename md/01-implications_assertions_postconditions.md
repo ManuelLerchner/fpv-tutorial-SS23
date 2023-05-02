@@ -23,10 +23,10 @@ This is a very important statement, because it can be used to simplify complex s
 
 | $A$ | $B$ | $A \implies B$ |
 |:---:|:---:|:--------------:|
-| T   | T   | T              |
-| T   | F   | F              |
-| F   | T   | T              |
 | F   | F   | T              |
+| F   | T   | T              |
+| T   | F   | F              |
+| T   | T   | T              |
 
 ### Examples
 
