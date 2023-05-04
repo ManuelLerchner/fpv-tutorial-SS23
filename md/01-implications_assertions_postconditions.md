@@ -161,6 +161,8 @@ $$
 
 To compute the assertion after the statement `i=i+1` we basically need to **undo** the statement `i=i+1` because the original assertion refered to the old value of $i$, before it was updated.
 
+> Note: This only works for updates of variables. Other assignments might be alot more complicated.
+
 We first compute the **undo** of the statement `i=i+1`:
 $$
 \bf{Undo}[[i=i+1]] \equiv i=i-1
