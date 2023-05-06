@@ -24,8 +24,8 @@ jobs:
       - name: create list of all files
         id: files_list
         run: |
-          cd summaries
-          echo "files=$(printf '"summaries/%s" ' *.md)" >> $GITHUB_ENV
+          cd md
+          echo "files=$(printf '"md/%s" ' *.md)" >> $GITHUB_ENV
 
       - name: print all files
         run: echo compiling ${{ env.files }}
@@ -57,7 +57,7 @@ jobs:
         run: mkdir -p docs
 
       - name: merge
-        run: pdftk material/**/w*.pdf cat output docs/slides.pdf
+        run: pdftk slides/*.pdf cat output docs/slides.pdf
 
       - uses: actions/upload-artifact@master
         with:
