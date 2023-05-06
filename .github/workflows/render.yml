@@ -27,7 +27,7 @@ jobs:
       - name: compile and merge summary
         uses: docker://pandoc/latex:2.9
         with:
-          args: -V documentclass=report -V classoption=oneside -V geometry:vmargin=14.5mm -V lang:de --fail-if-warnings --output=docs/summary.pdf material/**/s*.md
+          args: -V documentclass=report -V classoption=oneside -V geometry:vmargin=14.5mm -V lang:de --fail-if-warnings --output=docs/summary.pdf material/**/*.md
 
       - uses: actions/upload-artifact@master
         with:
