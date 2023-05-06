@@ -21,13 +21,22 @@ jobs:
       - name: install svg to png
         run: sudo apt-get install librsvg2-bin
 
+      - name: create list of all nested .md files
+        id: files_list
+        run: |
+          cd material
+          echo "files=$(find . -name '*.md' | sort | sed 's/^\.\///' | sed 's/\//\//g' | sed ':a;N;$!ba;s/\n/ /g') " >> $GITHUB_ENV
+
+      - name: print all files
+        run: echo compiling ${{ env.files }}
+
       - name: create docs folder if not exists
         run: mkdir -p docs
 
       - name: compile and merge summary
         uses: docker://pandoc/latex:2.9
         with:
-          args: -V documentclass=report -V classoption=oneside -V geometry:vmargin=14.5mm -V lang:de --fail-if-warnings --output=docs/summary.pdf material/**/*.md
+          args: -V documentclass=report -V classoption=oneside -V geometry:vmargin=14.5mm -V lang:de --fail-if-warnings --output=docs/summary.pdf ${{ env.files }}
 
       - uses: actions/upload-artifact@master
         with:
