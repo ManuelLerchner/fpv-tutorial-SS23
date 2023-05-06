@@ -21,11 +21,10 @@ jobs:
       - name: install svg to png
         run: sudo apt-get install librsvg2-bin
 
-      - name: create list of all files
+      - name: create list of all nested .md files
         id: files_list
         run: |
-          cd summaries
-          echo "files=$(printf '"summaries/%s" ' *.md)" >> $GITHUB_ENV
+          echo "files=$(find material -name '*.md' | sort | sed 's/^\.\///' | sed 's/\//\//g' | sed ':a;N;$!ba;s/\n/ /g') " >> $GITHUB_ENV
 
       - name: print all files
         run: echo compiling ${{ env.files }}
