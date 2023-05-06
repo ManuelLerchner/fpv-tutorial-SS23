@@ -25,7 +25,7 @@ jobs:
         id: files_list
         run: |
           cd material
-          echo "files=$(find . -name '*.md' | sort | sed 's/^\.\///' | sed 's/\//\\\//g' | sed ':a;N;$!ba;s/\n/ /g')" >> $GITHUB_ENV
+          echo "files=$(find . -name '*.md' | sort)" >> $GITHUB_ENV
 
       - name: print all files
         run: echo compiling ${{ env.files }}
