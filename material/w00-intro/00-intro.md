@@ -15,7 +15,7 @@ include-before: |
 
   Materialien für Manuel's FPV-Tutorium im Sommersemester 2023.
 
-  >Die Materialien sind privat erstellt und können Fehler enthalten. Im Zweifelsfall haben immer die **offiziellen** Lehrunterlagen vorrang.
+  + **Die Materialien sind privat erstellt und können Fehler enthalten. Im Zweifelsfall haben immer die *offiziellen* Lehrunterlagen Vorrang.**
 
   + Alle Zusammenfassungen dieses Repositories können über [manuellerchner.github.io/fpv-tutorial-SS23/summary.pdf](https://manuellerchner.github.io/fpv-tutorial-SS23/summary.pdf) heruntergeladen werden.
 
@@ -31,8 +31,6 @@ include-before: |
 
   ## Contributors
 
-  <a href="https://github.com/ManuelLerchner/fpv-tutorial-ss23/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=ManuelLerchner/fpv-tutorial-ss23" />
-  </a>
+  [![Contributors](https://contrib.rocks/image?repo=ManuelLerchner/fpv-tutorial-ss23)](https://github.com/ManuelLerchner/fpv-tutorial-ss23/graphs/contributors)
 
 ---
