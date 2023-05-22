@@ -54,7 +54,7 @@ Since we only want to prove that the loop terminates, we just need to prove $tru
 
 In general, we need to insert the following assertions / statements
 
-![Flowchart with auxiliary variable](./material/w04/images/program_with_assertions.png)
+![Flowchart with auxiliary variable](./material/w04-termination/images/program_with_assertions.png)
 
 Notice that we need both these assertions to prove termination:
 

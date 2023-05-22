@@ -8,7 +8,7 @@ A loop invariant is a assertion that holds in each iteration of a loop. Finding 
 
 Lets say you are trying to calculate the weakest precondition for the following program:
 
-![Program with loop](material/w03/images/program_with_loop.png)
+![Program with loop](material/w03-loop invariants/images/program_with_loop.png)
 
 The normal way of finding the weakest precondition would be to start at the end of the program and work your way backwards.
 
