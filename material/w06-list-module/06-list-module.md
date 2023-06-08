@@ -1,8 +1,6 @@
-# Ocaml Exercises
+# List Module
 
-## List Module
-
-### Lists in OCaml
+## Lists in OCaml
 
 Lists in ocaml are basically linked lists. They are defined as follows:
 
@@ -21,7 +19,7 @@ let tail = List.tl my_list (* tail = [2; 3; 4; 5] *)
 
 Since Linked lists are recursive in nature, most of the functions that operate on lists are recursive. For example, the length function is defined as follows:
 
-#### Example Length
+### Example Length
 
 ```ocaml
 let rec length l =
