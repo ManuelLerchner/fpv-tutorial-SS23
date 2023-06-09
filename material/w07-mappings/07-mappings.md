@@ -1,4 +1,4 @@
-# Advanced List Operations
+# Week 7: Advanced List Operations
 
 ## List Reduce
 
@@ -34,8 +34,10 @@ In each step we combine the accumulator with the next element in the list, and t
 It is called `fold_left` because it implicitly groups the elements of the list from left to right.
 
 $$
-list=[7, 8, -9, 10]\\
-fold\_left(f, 0, list) = f(f(f(f(0, 7), 8), -9), 10)\\
+\begin{aligned}
+list&=[7, 8, -9, 10]\\
+fold\_left(f, 0, list) &= f(f(f(f(0, 7), 8), -9), 10)
+\end{aligned}
 $$
 
 ### `List.fold_right`
@@ -59,6 +61,8 @@ It has a different type signature than `List.fold_left`:
 | | **16** |  |  |  |  |
 
 $$
-list=[7, 8, -9, 10]\\
-fold\_right(f, list, 0) = f(7, f(8, f(-9, f(10, 0))))\\
+\begin{aligned}
+list&=[7, 8, -9, 10]\\
+fold\_right(f, list, 0) &= f(7, f(8, f(-9, f(10, 0))))
+\end{aligned}
 $$
