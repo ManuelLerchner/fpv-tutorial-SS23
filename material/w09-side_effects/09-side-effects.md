@@ -40,7 +40,7 @@ But sometimes we want exceptions to occur. For example if we read to the end of 
 ```ocaml
 let rec read_file (filename : string) : string list =
   let ic = open_in filename in
-  let read_loop () =
+  let rec read_loop () =
     try
       let row = input_line ic in
       row :: read_loop ()
