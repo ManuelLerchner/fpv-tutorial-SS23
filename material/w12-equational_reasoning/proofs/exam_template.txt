@@ -1,0 +1,17 @@
+Generalized statement (*) (if necessary): <...>
+---
+Base Case:
+Statement being proven in base case: <...>
+Proof of base case:
+<...>
+---
+Inductive Step:
+Induction hypothesis (or hypotheses): <...>
+Statement being proved in inductive step: <...>
+Proof of inductive step:
+<...>
+---
+Instantiation of generalization (if necessary):
+<...>
+---
+QED

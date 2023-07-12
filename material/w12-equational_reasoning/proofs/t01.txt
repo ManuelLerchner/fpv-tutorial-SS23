@@ -1,0 +1,46 @@
+let rec fact n = match n with 0 -> 1
+  | n -> n * fact (n-1)
+
+
+let rec fact_aux acc n = match n with 0 -> acc
+  | n -> fact_aux (n*acc) (n-1)
+
+let fact_iter n = fact_aux 1 n
+
+################################################
+
+To prove:
+            fact_iter n = fact n
+
+Adaptation:
+            fact_aux 1 n = fact n
+
+
+Proof by Induction on n
+
+Base: n = 0
+
+            fact_aux 1 0
+(rules)     = <...>
+            = fact 0
+
+
+
+Hypothesis: (Does it hold?)
+            fact_aux 1 n = fact n
+
+Step:
+
+            fact_aux 1 (n+1) 
+(rules)     = <...>
+            = fact (n+1)
+
+
+
+
+
+Trace Back:
+
+            fact_iter n
+(rules)     = (...)
+            = fact n

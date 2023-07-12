@@ -1,0 +1,50 @@
+type tree = Node of tree * tree | Empty
+
+let rec nodes t = match t with Empty -> 0
+    | Node (l,r) -> 1 + (nodes l) + (nodes r)
+
+let rec count t =
+  let rec aux t a = match t with Empty -> a
+      | Node (l,r) -> aux r (aux l (a+1))
+  in
+  aux t 0
+
+################################################
+
+To prove:
+            nodes t = count t
+
+Adaptation:
+            nodes t = aux t 0
+
+Generalization:
+            acc + nodes t = aux t acc
+
+
+
+Proof of the generalization (by induction on t):
+
+Base: t = Empty
+
+            acc + nodes Empty
+(rules)     = <...>
+            = aux Empty acc
+
+
+
+Hypothesis: (Does it hold?)
+            acc + nodes t = aux t acc
+
+Step:
+
+            acc + nodes (Node (a,b))
+(rules)     = <...>
+            = aux (Node (a,b)) acc
+
+
+
+Trace Back:
+
+            nodes t
+(rules)     = (...)
+            = count t

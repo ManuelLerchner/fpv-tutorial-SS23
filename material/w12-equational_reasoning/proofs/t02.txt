@@ -1,0 +1,73 @@
+let rec summa l = match l with
+  | [] -> 0
+  | h :: t -> h + summa t
+
+let rec sum l a = match l with
+  | [] -> a
+  | h :: t -> sum t (h + a)
+
+let rec mul i j a = match i <= 0 with
+  | true -> a
+  | false -> mul (i - 1) j (j + a)
+
+################################################
+
+To prove:
+            mul c (sum l 0) 0 = c * summa l
+
+Generalization:
+*           mul c (sum l acc1) acc2 = acc2 + c * (acc1 + summa l)
+
+
+================== Lemma 1 =================================
+
+Lemma 1:
+        sum l acc1 = acc1 + summa l
+
+Proof of * by Induction on l
+
+Base: l = []
+
+            sum [] acc1
+(rules)     = <....>
+            = acc1 + summa []
+
+Hypothesis:
+            sum l acc1 = acc1 + summa l
+
+Step:
+
+            sum (x :: xs) acc1
+(rules)     = <....>
+            = acc1 + summa (x :: xs)
+
+================== End Lemma 1 =============================
+
+
+Proof of initial goal by Induction on c:
+          To Proof:  mul c (sum l acc1) acc2 = acc2 + c * (acc1 + summa l)
+
+Base: c = 0
+
+            mul 0 (sum l acc1) acc2
+(rules)     = <...>
+            = acc2 + 0 * (acc1 + summa l)
+
+
+
+Hypothesis: (Does it hold?)
+            mul c (sum l acc1) acc2 = acc2 + c * (acc1 + summa l)
+
+Step:
+
+            mul (c + 1) (sum l acc1) acc2
+(rules)     = <...>
+            = acc2 + (c + 1) * (acc1 + summa l)
+
+
+
+Trace Back:
+
+            mul c (sum l 0) 0
+(rules)     = (...)
+            = c * summa l
