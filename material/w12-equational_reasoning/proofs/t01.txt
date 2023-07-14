@@ -15,32 +15,46 @@ To prove:
 Adaptation:
             fact_aux 1 n = fact n
 
+Generalization:
+            fact_aux acc n = acc * fact n
+
+
 
 Proof by Induction on n
 
 Base: n = 0
 
-            fact_aux 1 0
-(rules)     = <...>
-            = fact 0
+            fact_aux acc 0
+(fact_aux)  = match 0 with 0 -> acc | n -> fact_aux (n*acc) (n-1)
+(match)     = acc
+(arith)     = acc
+(match)     = acc * 1
+(fact)      = acc * match 0 with 0 -> 1 | n -> n * fact (n-1)
+            = acc * fact 0
 
 
-
-Hypothesis: (Does it hold?)
-            fact_aux 1 n = fact n
+Hypothesis: (*)
+            fact_aux acc n = acc * fact n
 
 Step:
 
-            fact_aux 1 (n+1) 
-(rules)     = <...>
-            = fact (n+1)
-
-
+            fact_aux acc (n+1) 
+(fact_aux)  = match (n+1) with 0 -> acc | n -> fact_aux (n*acc) (n-1)
+(match)     = fact_aux ((n+1)*acc) ((n+1)-1)
+(arith)     = fact_aux ((n+1)*acc) n
+(I.H)       = ((n+1)*acc) * fact n
+(arith)     = acc * (n+1) * fact n
+(arith)     = acc * (n+1) * fact n
+(match)     = acc * (n+1) * fact ((n+1)-1)
+(fact)      = acc * match (n+1) with 0 -> 1 | n -> n * fact (n-1)
+            = acc * fact (n+1)
 
 
 
 Trace Back:
 
             fact_iter n
-(rules)     = (...)
+(fact_iter) = fact_aux 1 n
+(*)         = 1 * fact n
+(arith)     = fact n
             = fact n

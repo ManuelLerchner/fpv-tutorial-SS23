@@ -27,24 +27,40 @@ Proof of the generalization (by induction on t):
 Base: t = Empty
 
             acc + nodes Empty
-(rules)     = <...>
+(nodes)     = acc + match Empty with Empty -> 0 | Node (l,r) -> 1 + (nodes l) + (nodes r)
+(match)     = acc + 0
+(arith)     = acc
+(match)     = acc
+(aux)       = match Empty with Empty -> acc | Node (l,r) -> aux r (aux l (acc+1))
             = aux Empty acc
 
 
 
-Hypothesis: (Does it hold?)
+Hypothesis: 
             acc + nodes t = aux t acc
 
 Step:
 
             acc + nodes (Node (a,b))
-(rules)     = <...>
+(nodes)     = acc + match Node (a,b) with Empty -> 0 | Node (l,r) -> 1 + (nodes l) + (nodes r)
+(match)     = (acc + 1) + (nodes a) + (nodes b)
+(I.H)       = acc + 1 + nodes a + nodes b
+(I.H)       = aux b (acc+1 + nodes a)
+(match)     = aux b (aux a (acc+1))
+(aux)       = match Node (a,b) with Empty -> acc | Node (l,r) -> aux r (aux l (acc+1))
             = aux (Node (a,b)) acc
 
+
+
+(*)
+=> acc + nodes t = aux t acc
 
 
 Trace Back:
 
             nodes t
-(rules)     = (...)
+(arith)     = 0 + nodes t
+(*)         = aux t 0
+
+(count)     = aux t 0
             = count t
