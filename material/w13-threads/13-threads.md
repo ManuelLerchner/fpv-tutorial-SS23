@@ -45,4 +45,4 @@ let result = Event.sync (Event.receive response_channel) ;;
 print_endline (string_of_int result) ;;
 ```
 
-Using this we can retrieve the return value of the thread. Note that we can only send one value through the channel. If we want to send multiple values we can use the `Event.send` method multiple times.
+Using this we can retrieve the return value of the thread. Note that we can only send one value through the channel.
