@@ -16,7 +16,7 @@ A tuple is a sequence of expressions separated by commas and enclosed in parenth
 
 where `E1, E2, ..., En` are expressions, `V1, V2, ..., Vn` are values, and `n >= 0`.
 
-![Tuple Evaluation](material/w11-big_step/images/image.png)
+![Tuple Evaluation](material/w11-big_step/images/image1.png)
 
 ### List
 
@@ -40,13 +40,13 @@ A global definition is a definition of a value at the top level of a program. Th
 
 A local definition is a definition of a value inside a `let` expression. The big step semantics for a local definition is to evaluate the expression, and then substitute the value of the expression for the variable in the body of the `let` expression.
 
-![Local Definition](material/w11-big_step/images/image4.png)
+![Local Definition](material/w11-big_step/images/image5.png)
 
 ### Function Call
 
 In order to evaluate a function call, we need to evaluate the function expression and the argument expression. Then we substitute the value of the argument expression for the parameter in the body of the function expression.
 
-![Function Call](material/w11-big_step/images/image5.png)
+![Function Call](material/w11-big_step/images/image.png)
 
 ### Pattern Matching
 
