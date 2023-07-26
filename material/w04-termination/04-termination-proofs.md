@@ -36,7 +36,7 @@ This is where **termination proofs** come in.
 
 ## What is a Termination Proof?
 
-In an assertion proof, you generally try to prove that a certain variable only takes on positive values inside a loop. Furthermore, you try to prove that the variable is decreased by at least one in each iteration of the loop.
+In a termination proof, you generally try to prove that a certain variable only takes on positive values inside a loop. Furthermore, you try to prove that the variable is decreased by at least one in each iteration of the loop.
 
 This means that the variable will eventually reach zero (or less) and the cannot be entered again. Because this would violate the Assertion we defined.
 

@@ -1,6 +1,6 @@
 # Week 12: Equational Reasoning
 
-Equational reasoning is a powerful technique for proving properties of programs. We mostly use it to veryfy that a function behaves as expected, the main idea is to repeatedly substitute equal expressions and to perform simplifications until we show that the result is the expected one.
+Equational reasoning is a powerful technique for proving properties of programs. We mostly use it to verify that a function behaves as expected, the main idea is to repeatedly substitute equal expressions and to perform simplifications until we show that the result is the expected one.
 We often do this by performing induction on the structure of the input.
 
 An important aspect to note is that if a function has an auxiliary variable. For example:
