@@ -94,7 +94,7 @@ Remember that whenever the programm-flow reaches an assertion, the assertion mus
 
 Two assertions $A$ and $B$ can have different strengths. This happens for example if assertion $A$ is more precise than assertion $B$.
 
-For example, the assertion $A=5$ is stronger than the assertion $B=5 \lor 6$, because it is more specific. The assertion $A$ only allows the value $5$, while the assertion $B$ allows the values $5$ and $6$.
+For example, the assertion $A=5$ is stronger than the assertion $B=5 \lor B=6$, because it is more specific. The assertion $A$ only allows the value $5$, while the assertion $B$ allows the values $5$ and $6$.
 
 This makes sense intuitively. But in order to use it in practice, we need to define what it means for an assertion to be stronger than another assertion.
 

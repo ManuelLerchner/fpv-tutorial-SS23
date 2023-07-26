@@ -2,7 +2,7 @@
 
 ## What is a loop invariant?
 
-A loop invariant is a assertion that holds in each iteration of a loop. Finding such a loop invariant is needed to calculate weakest preconditions for programs with loops, because the **normal** way of finding the preconditions does not work for loops.
+A loop invariant is an assertion that holds in each iteration of a loop. Finding such a loop invariant is needed to calculate weakest preconditions for programs with loops, because the **normal** way of finding the preconditions does not work for loops.
 
 ## The Problem with Loops
 
