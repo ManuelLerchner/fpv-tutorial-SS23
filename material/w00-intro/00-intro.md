@@ -8,6 +8,8 @@ date: >-
 keywords:
   ["FPV", "Tutorium", "Sommersemester", "2023", "TUM"]
 urlcolor: blue
+header-includes:
+ - \usepackage{stmaryrd}
 include-before: |
   # FPV Tutorial - SS23
 

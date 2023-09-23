@@ -7,10 +7,24 @@ Weakest Preconditions are used calculate the minimum requirements, which need to
 Its written as:
 
 $$
-\bf{WP}[[s]](e)
+\bf{WP}\llbracket s\rrbracket(e)
 $$
 
 Where $s$ is a statement and $e$ is an assertion.
+
+### Rules
+
+The rules for calculating the weakest precondition of a MiniJava statement are as follows:
+
+$$
+\begin{aligned}
+\bf{WP}\llbracket {x=read()}\rrbracket(A) &\equiv \forall x. A\\
+\bf{WP}\llbracket write(expr)\rrbracket(A) &\equiv A\\
+\bf{WP}\llbracket x=expr\rrbracket(A) &\equiv A[expr/x]\\
+\bf{WP}\llbracket c \rrbracket(B_{false}, B_{true}) &\equiv (c \land B_{true}) \lor (\neg c \land B_{false})\\
+&\equiv (c \implies B_{true}) \land (\neg c \implies B_{false})\\
+\end{aligned}
+$$
 
 ### Example
 
@@ -31,7 +45,7 @@ We can calculate this using the following formula:
 
 $$
 \begin{aligned}
-& \bf{WP}[[t = 3*r]](t \geq 0) \\
+& \bf{WP}\llbracket t = 3*r\rrbracket(t \geq 0) \\
 \equiv\ & 3*r \geq 0 \\
 \equiv\ & r \geq 0\ =: A
 \end{aligned}
@@ -44,10 +58,10 @@ Now we know, that for the assertion `t>=0` to hold after `var t = 3*r;`, the ass
 Two assertions $A$ and $B$ are locally consistent, if $A$ is **stronger** than the **weakest precondition** of $B$. This is written as:
 
 $$
-A \implies \bf{WP}[[s]](B)
+A \implies \bf{WP}\llbracket s\rrbracket(B)
 $$
 
->Note that it is not required that $A= \bf{WP}[[s]](B)$. Because a stronger assertion than required is also fine.
+>Note that it is not required that $A= \bf{WP}\llbracket s\rrbracket(B)$. Because a stronger assertion than required is also fine.
 
 Local consistency is important: It mathematically proves that whenever the assertion $A$ holds, then the assertion $B$ holds after the statement $s$. This can be used to prove that a program actually computes what it is supposed to compute.
 
@@ -85,8 +99,8 @@ We can calculate the weakest precondition of $B$ and $s$ as follows:
 
 $$
 \begin{aligned}
-&\bf{WP}[[s]](B) \\
-\equiv\ &\bf{WP}[[x=x+5]](x \neq 0) \\
+&\bf{WP}\llbracket s\rrbracket(B) \\
+\equiv\ &\bf{WP}\llbracket x=x+5\rrbracket(x \neq 0) \\
 \equiv\ & x+5 \neq 0 \\
 \equiv\ & x \neq -5 \ =: B'\\
 \end{aligned}
@@ -112,7 +126,7 @@ If we compute the weakest precondition of $A$ and `x=30;` we get:
 
 $$
 \begin{aligned}
-&\bf{WP}[[x=30]](x>25) \\
+&\bf{WP}\llbracket x=30\rrbracket(x>25) \\
 \equiv\ & 30>25 \\
 \equiv\ & true =: A'\\
 \end{aligned}

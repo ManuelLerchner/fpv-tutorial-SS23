@@ -21,6 +21,9 @@ jobs:
       - name: install svg to png
         run: sudo apt-get install librsvg2-bin
 
+      - name: install latex math support
+        run: sudo apt-get install texlive-science
+
       - name: create list of all nested .md files
         id: files_list
         run: |

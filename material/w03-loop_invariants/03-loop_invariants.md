@@ -14,15 +14,20 @@ The normal way of finding the weakest precondition would be to start at the end 
 
 $$
 \begin{aligned}
-X&=\bf{WP}[write(x)](x=n!) &= x=n! \\
+I& \equiv \bf{WP}\llbracket i<n\rrbracket (X,K) \\
+   &\equiv \ (i<n \land K) \lor (i \geq n \land X) \ \text{(So we need to calculate $X$ and $K$)} \\
 \\
-I&=\bf{WP}[i<n](X,K) &= (i<n \land K) \lor (i \geq n \land X) \\
-K&=\bf{WP}[i:=i+1](J) &= J[(i+1) / i] \\
-J&=\bf{WP}[x:=x*i](I) &= I[x*i/x] \\
+X &\equiv \bf{WP}\llbracket write(x)\rrbracket (x=n!) \\
+   &\equiv \ x=n! \ \text{(All good so far)} \\
+\\
+K&\equiv \ \bf{WP}\llbracket i:=i+1\rrbracket (J) \\
+   &\equiv J[(i+1) / i]  \ \text{($K$ depends on $J$ so we need to find $J$)} \\
+J&\equiv \ \bf{WP}\llbracket x:=x*i\rrbracket (I) \\
+&\equiv I[x*i/x] \ \text{($J$ depends on $I$ so we need to find $I$)} \\
 \end{aligned}
 $$
 
-So we came to a conclusion that in order for us to compute the weakest precondition $I$ we need to calculate $I,K$ and $J$. But $J$ itself depends on $I$ so we have a circular dependency and therefore we cannot calculate $I$ directly.
+So we came to a conclusion that in order for us to compute the weakest precondition $I$ we need to calculate $K$ and $J$. But $J$ itself depends on $I$ so we have a circular dependency and therefore we cannot calculate $I$ directly.
 
 ## Finding a Loop Invariant
 
@@ -41,12 +46,12 @@ For this we look at some other loop invariants and evaluate them:
 ### Example Loop Invariants
 
 1. $I:= x\geq 0$:
-   - This loop invariant is **not strong enough** to prove the correctness of the program. Since it it fails the local consistency check. ($I\not\implies \bf{WP}[i<n](X,K)$)
+   - This loop invariant is **not strong enough** to prove the correctness of the program. Since it it fails the local consistency check. ($I\not\implies \bf{WP}\llbracket i<n\rrbracket (X,K)$)
    - It was obvious that this loop invariant fails, because it does not contain any precise information about the value of $x$, which is needed to prove $x=n!$.
 2. $I:= i=0\land x=1 \land n=0$:
    - This loop invariant is way to strong, and is overall a bad choice because it would fail for any $n\neq 0$.
 3. $I:= x=i! \land 0<i \leq n$:
-   - This loop invariant is **strong enough** to prove the correctness of the program. Since it passes the local consistency check. ($I\implies \bf{WP}[i<n](X,K)$)
+   - This loop invariant is **strong enough** to prove the correctness of the program. Since it passes the local consistency check. ($I\implies \bf{WP}\llbracket i<n\rrbracket (X,K)$)
    - Using this loop invariant we can prove that $true$ holds at the start of the program, which means that the program and its assertions is correct.
    - Why does this loop invariant work?
      - It encapsulates all "relevant" information about the variables which change in the loop ($x$ and $i$).

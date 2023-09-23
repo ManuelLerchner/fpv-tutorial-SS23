@@ -156,7 +156,7 @@ What is the strongest postcondition of the statement `i=i+1` and the preconditio
 This can be written as:
 
 $$
-\bf{SP}[[i=i+1]](x=3*i\land i\geq 0)
+\bf{SP}\llbracket i=i+1 \rrbracket(x=3*i\land i\geq 0)
 $$
 
 To compute the assertion after the statement `i=i+1` we basically need to **undo** the statement `i=i+1` because the original assertion refered to the old value of $i$, before it was updated.
@@ -165,7 +165,7 @@ To compute the assertion after the statement `i=i+1` we basically need to **undo
 
 We first compute the **undo** of the statement `i=i+1`:
 $$
-\bf{Undo}[[i=i+1]] \equiv i=i-1
+\bf{Undo} \llbracket i=i+1\rrbracket \equiv i=i-1
 $$
 
 Then we replace the varibale $i$ (which has already gotten updated) inside the assertion with the **undo-ed** statement:
@@ -183,7 +183,7 @@ In total we have:
 
 $$
 \begin{aligned}
-C:=\ &\bf{SP}[[i=i+1]](x=3*i\land i\geq 0)\\
+C:=\ &\bf{SP}\llbracket i=i+1\rrbracket(x=3*i\land i\geq 0)\\
 \equiv& \  x=3*(i-1)\land i\geq 1
 \end{aligned}
 $$
