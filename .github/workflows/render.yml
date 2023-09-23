@@ -21,7 +21,10 @@ jobs:
       - name: install svg to png
         run: sudo apt-get install librsvg2-bin
 
-      - name: install latex math support
+      - name: install texlive
+        run: sudo apt-get install texlive-lang-german
+
+      - name: install texlive science
         run: sudo apt-get install texlive-science
 
       - name: install pandoc
