@@ -24,21 +24,15 @@ jobs:
       - name: install latex math support
         run: sudo apt-get install texlive-science
 
-      - name: create list of all nested .md files
-        id: files_list
-        run: |
-          echo "files=$(find material -name '*.md' | sort | sed 's/^\.\///' | sed 's/\//\//g' | sed ':a;N;$!ba;s/\n/ /g') " >> $GITHUB_ENV
-
-      - name: print all files
-        run: echo compiling ${{ env.files }}
+      - name: install pandoc
+        run: sudo apt-get install pandoc
 
       - name: create docs folder if not exists
         run: mkdir -p docs
 
-      - name: compile and merge summary
-        uses: docker://pandoc/latex:2.9
-        with:
-          args: -V documentclass=report -V classoption=oneside -V geometry:vmargin=14.5mm -V lang:de --fail-if-warnings --output=docs/summary.pdf ${{ env.files }}
+      - name: run render.sh
+        run: |
+          ./render.sh
 
       - uses: actions/upload-artifact@master
         with:
