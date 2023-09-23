@@ -27,6 +27,9 @@ jobs:
       - name: install pandoc
         run: sudo apt-get install pandoc
 
+      - name: install pdftk
+        run: sudo apt-get install pdftk
+
       - name: create docs folder if not exists
         run: mkdir -p docs
 
