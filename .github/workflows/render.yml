@@ -27,15 +27,12 @@ jobs:
       - name: install pandoc
         run: sudo apt-get install pandoc
 
-      - name: install pdftk
-        run: sudo apt-get install pdftk
-
       - name: create docs folder if not exists
         run: mkdir -p docs
 
       - name: run render.sh
         run: |
-          ./render.sh
+          pandoc -V documentclass=report -V classoption=oneside -V geometry:vmargin=14.5mm -V lang:de --fail-if-warnings --output=docs/summary.pdf material/**/*.md
 
       - uses: actions/upload-artifact@master
         with:
