@@ -13,6 +13,13 @@ Materialien für Manuel's FPV-Tutorium im Sommersemester 2023.
 
 + Die Tutor-Slides sind unter [manuellerchner.github.io/fpv-tutorial-SS23/slides.pdf](https://manuellerchner.github.io/fpv-tutorial-SS23/slides.pdf) verfügbar.
 
+## When do students learn the topics covered in the tutorials? 
+
+By looking at the github-stars as a reference, one can see the `hot` weeks of a semester happen just before an exam.
+This is to be expected, however I still found it quite funny.
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ManuelLerchner/fpv-tutorial-SS23&type=Date)](https://star-history.com/#ManuelLerchner/fpv-tutorial-SS23&Date)
+
 ## Found an error, or want to add something?
 
 1. Fork this Repository
